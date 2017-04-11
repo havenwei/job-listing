@@ -7,5 +7,32 @@
   <p>月薪：<%= @job.wage_lower_bound %>~<%= @job.wage_upper_bound %></p>
   <p>联络方式：<%= @job.contact_email %></p>
 
+  <hr/>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <td>简历名称</td>
+          <td>上传者</td>
+          <td>附件</td>
+          <td>上传时间</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @resumes.each do |resume| %>
+          <tr>
+            <td><%= resume.name %></td>
+            <td><%= resume.user.email %></td>
+            <td><%= link_to "Download Resume", resume.attachment_url %></td>
+            <td><%= resume.created_at %></td>
+            <td>
+              <%= link_to("Delete", job_resume_path(resume.job,resume), method: :delete,
+              data: {confirm: "Are you sure?"} ) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
   <%= link_to("Back" , admin_jobs_path) %>
 </div>

@@ -1,10 +1,12 @@
 <div class="col-md-12">
-  <div class="job">
-    <%= link_to("Edit", edit_job_path(@job), class: "btn btn-default pull-right") %>
-  </div>
+    <div class="pull-right">
+      <%= link_to("Upload Resume", new_job_resume_path(@job), class: "btn btn-default") %>
+    </div>
+
   <h3><%= @job.title %></h3>
   <p>职位描述：<%= simple_format(@job.description) %></p>
   <p>月薪：<%= @job.wage_lower_bound %>~<%= @job.wage_upper_bound %></p>
   <p>联络方式：<%= @job.contact_email %></p>
+
   <%= link_to("Back", jobs_path) %>
 </div>

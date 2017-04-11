@@ -1,0 +1,6 @@
+<%= simple_form_for [@job,@resume], html:{multipart: true} do |f| %>
+  <%= f.input :name %>
+  <%= f.input :content %>
+  <%= f.input :attachment %>
+  <%= f.submit "Submit", class: "btn btn-default", data: {disable_with: "Submiting..."} %>
+<% end %>

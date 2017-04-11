@@ -6,6 +6,8 @@ class Job < ApplicationRecord
   validates :wage_upper_bound, numericality: {greater_than: :wage_lower_bound}
   validates :wage_lower_bound, numericality: {greater_than: 0}
 
+  has_many :resumes, dependent: :destroy
+
   def publish!
     self.is_hidden = false
     self.save

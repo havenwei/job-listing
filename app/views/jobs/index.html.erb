@@ -1,8 +1,4 @@
-<% if current_user.is_admin %>
-  <div class="pull-right">
-    <%= link_to("Add a job", new_job_path, class: "btn btn-default") %>
-  </div>
-<% else %>
+
   <div class="dropdown pull-right">
     <button class="btn btn-defult dropdown-toggle" type="button" id="dropdownMenuDivider"
     data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -21,7 +17,7 @@
       </li>
     </ul>
   </div>
-<% end %>
+
 
 <br><br>
 
@@ -41,10 +37,7 @@
         <td><%= job.wage_lower_bound %></td>
         <td><%= job.wage_upper_bound %></td>
         <td><%= job.created_at %></td>
-        <% if current_user.is_admin %>
-          <td><%= link_to("Edit", edit_job_path(job))%> |
-              <%= link_to("Destroy", job_path(job), method: :delete, data:{confirm: "Are you sure?"}) %></td>
-        <% end %>
+
       </tr>
     <% end %>
   </tbody>
